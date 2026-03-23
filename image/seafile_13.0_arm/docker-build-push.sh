@@ -3,7 +3,7 @@
 
 version=$1
 
-docker build --pull -t --build-arg server_version=$version seafileltd/seafile-mc:${version}-arm-testing ./
+docker build --pull --build-arg server_version=$version -t seafileltd/seafile-mc:${version}-arm-testing ./
 
 
 
