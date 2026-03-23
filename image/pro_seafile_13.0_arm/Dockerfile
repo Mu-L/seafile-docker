@@ -1,5 +1,6 @@
 FROM ubuntu:24.04
-ENV SEAFILE_SERVER=seafile-pro-server SEAFILE_VERSION=
+ARG server_version=
+ENV SEAFILE_SERVER=seafile-pro-server SEAFILE_VERSION=$server_version
 
 # https://github.com/phusion/baseimage-docker
 COPY base_scripts /bd_build
