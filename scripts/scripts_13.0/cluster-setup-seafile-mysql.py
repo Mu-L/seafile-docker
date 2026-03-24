@@ -1317,6 +1317,7 @@ import os
 
 daemon = True
 workers = 5
+threads = 4
 
 # default localhost:8000
 bind = "127.0.0.1:8000"
