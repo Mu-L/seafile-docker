@@ -529,7 +529,6 @@ def copy_scripts_and_libs():
     must_copy(os.path.join(scripts_srcdir, 'seaf-fsck.sh'), serverdir)
     must_copy(os.path.join(scripts_srcdir, 'check_init_admin.py'), serverdir)
     must_copy(os.path.join(scripts_srcdir, 'seafile-monitor.sh'), serverdir)
-    must_copy(os.path.join(scripts_srcdir, 'migrate_ldapusers.py'), serverdir)
 
     # copy update scripts
     update_scriptsdir = os.path.join(scripts_srcdir, 'upgrade')
