@@ -9,6 +9,15 @@ function log() {
 }
 
 
+# remove stale pid files
+PIDS_DIR=/opt/seafile/pids
+
+if [ -d "$PIDS_DIR" ]; then
+    log "Removing any existing stale pid files."
+    rm -fv $PIDS_DIR/*.pid
+fi
+
+
 # check nginx
 while [ 1 ]; do
     process_num=$(ps -ef | grep "/usr/sbin/nginx" | grep -v "grep" | wc -l)
