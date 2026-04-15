@@ -25,25 +25,25 @@
         create 644 root root
         sharedscripts
         postrotate
-                SEAF_SERVER_PID=$(pgrep -o -f "seaf-server")
+                SEAF_SERVER_PID=$(pgrep -o -f "seaf-server" | grep -v -w "$SCRIPT_PID" | head -n 1)
                 if [ -n "$SEAF_SERVER_PID" ]; then
                         kill -USR1 "$SEAF_SERVER_PID"
                         sleep 0.2
                 fi
 
-                FILESERVER_PID=$(pgrep -o -f "fileserver")
+                FILESERVER_PID=$(pgrep -o -f "fileserver" | grep -v -w "$SCRIPT_PID" | head -n 1)
                 if [ -n "$FILESERVER_PID" ]; then
                         kill -USR1 "$FILESERVER_PID"
                         sleep 0.2
                 fi
 
-                SEAFDAV_PID=$(pgrep -o -f "wsgidav")
+                SEAFDAV_PID=$(pgrep -o -f "wsgidav" | grep -v -w "$SCRIPT_PID" | head -n 1)
                 if [ -n "$SEAFDAV_PID" ]; then
                         kill -USR1 "$SEAFDAV_PID"
                         sleep 0.2
                 fi
 
-                GUNICORN_PID=$(pgrep -o -f "gunicorn")
+                GUNICORN_PID=$(pgrep -o -f "gunicorn" | grep -v -w "$SCRIPT_PID" | head -n 1)
                 if [ -n "$GUNICORN_PID" ]; then
                         pkill -HUP gunicorn
                         sleep 0.2
