@@ -25,6 +25,7 @@
         create 644 root root
         sharedscripts
         postrotate
+                SCRIPT_PID=$$
                 SEAF_SERVER_PID=$(pgrep -o -f "seaf-server" | grep -v -w "$SCRIPT_PID" | head -n 1)
                 if [ -n "$SEAF_SERVER_PID" ]; then
                         kill -USR1 "$SEAF_SERVER_PID"
