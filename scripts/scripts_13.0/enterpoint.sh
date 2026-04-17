@@ -59,8 +59,8 @@ if [[ $NON_ROOT == "true" ]] ;then
 fi
 
 # logrotate
-cat /scripts/logrotate-conf/logrotate-cron >> /var/spool/cron/crontabs/root
-/usr/bin/crontab /var/spool/cron/crontabs/root
+chmod 0644 /scripts/logrotate-conf/logrotate-cron
+/usr/bin/crontab /scripts/logrotate-conf/logrotate-cron
 
 
 # start cluster server
