@@ -43,7 +43,7 @@ RUN apt-get install -y python3 python3-pip python3-setuptools python3-ldap pytho
     pip3 install --no-cache-dir --ignore-installed -U setuptools cryptography && \
     rm -rf /usr/lib/python3/dist-packages/setuptools* && rm -rf /usr/lib/python3/dist-packages/cryptography*
 
-RUN pip3 install --no-cache-dir --timeout=3600 \
+RUN pip3 install --no-cache-dir --timeout=3600 --ignore-installed \
     boto3 oss2 twilio configparser \
     click termcolor colorlog pytz \
     sqlalchemy==2.0.* pymysql==1.1.* jinja2 django-pylibmc pylibmc psd-tools lxml \
